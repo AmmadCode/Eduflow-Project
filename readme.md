@@ -364,9 +364,9 @@ NODE_ENV=development
 
 ## 👨‍💻 Developer
 
-**Your Name**
+**Muhammad Ammad**
 
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [AmmadCode](https://github.com/AmmadCode/Eduflow-Project/)
 
 ---
 
