@@ -8,7 +8,7 @@ A full-featured Learning Management System built with the MERN stack. EduFlow su
 
 ## 🚀 Live Demo
 
-![Live Development](https://eduflow-project-murex.vercel.app/)
+[live demo](https://eduflow-project-murex.vercel.app/)
 
 ---
 
