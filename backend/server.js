@@ -13,36 +13,32 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = [
-  process.env.FRONTEND_URL, // e.g., https://eduflow-project-murex.vercel.app
-  "https://eduflow-project-murex.vercel.app", // Fallback explicit URL
-];
-
+// Replace your existing app.use(cors(...)) with this:
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no origin (like mobile apps or curl)
-      if (!origin) return callback(null, true);
-
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://eduflow-project-murex.vercel.app",
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-      "X-Requested-With",
-      "Accept",
-    ],
   }),
 );
 
-// Explicitly handle preflight requests for all routes
-app.options("*", cors());
+// IMPORTANT: Manual Pre-flight handler
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://eduflow-project-murex.vercel.app",
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+  );
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  next();
+});
 
 const port = process.env.PORT || 3000;
 
