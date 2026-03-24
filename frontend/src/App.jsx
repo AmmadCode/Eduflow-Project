@@ -7,7 +7,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
-import Auth from "./pages/Auth";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import InstructorLayout from "./layouts/InstructorLayout.jsx";
 import CreateCourse from "./pages/instructor/CreateCourse.jsx";
