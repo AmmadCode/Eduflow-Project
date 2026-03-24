@@ -3,31 +3,27 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
-
+import authRouter from "./routes/authRoutes.js";
+import courseRouter from "./routes/courseRoutes.js";
+import enrollRouter from "./routes/enrollmentRoutes.js";
+import adminRouter from "./routes/adminRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 const app = express();
 connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 
-app.use(
-  cors({
-    origin: "https://eduflow-project-murex.vercel.app",
-    credentials: true,
-  }),
-);
+const port = process.env.PORT || 3000;
 
-app.options("*", cors());
-
-// routes
+// api endpoints
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/courses", courseRouter);
 app.use("/api/enroll", enrollRouter);
-app.use("/api/admin", adminRouter);
-
-const port = process.env.PORT || 3000;
+app.use("/api/admin", adminRouter); // admin routes
 
 app.listen(port, () => {
-  console.log(`Server running on ${port}`);
+  console.log(`Server is running on Port ${port}`);
 });
