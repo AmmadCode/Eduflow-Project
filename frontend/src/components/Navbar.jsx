@@ -132,10 +132,13 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <Link to="/auth" className="btn-outline text-sm py-2 px-5">
+              <Link to="/auth/login" className="btn-outline text-sm py-2 px-5">
                 Login
               </Link>
-              <Link to="/auth" className="btn-emerald text-sm py-2 px-5">
+              <Link
+                to="/auth/register"
+                className="btn-emerald text-sm py-2 px-5"
+              >
                 Get Started →
               </Link>
             </>

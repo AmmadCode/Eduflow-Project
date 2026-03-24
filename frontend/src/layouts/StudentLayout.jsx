@@ -20,7 +20,7 @@ const StudentLayout = () => {
 
   const handleLogout = async () => {
     await logout();
-    navigate("/auth");
+    navigate("/auth/login");
   };
 
   const isActive = (path) => location.pathname === path;

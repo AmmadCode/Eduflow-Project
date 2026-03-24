@@ -156,7 +156,7 @@ const CourseDetail = () => {
 
                 {!user ? (
                   <Link
-                    to={`/auth?redirect=/courses/${id}`}
+                    to={`/auth/login?redirect=/courses/${id}`}
                     className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 rounded-xl text-sm transition mb-5 text-center block"
                   >
                     Login to Enroll

@@ -19,6 +19,12 @@ import AdminLayout from "./layouts/AdminLayout.jsx";
 import EditCourse from "./pages/instructor/EditCourse.jsx";
 import AdminUsers from "./pages/admin/AdminUsers.jsx";
 import AdminCourses from "./pages/admin/AdminCourses.jsx";
+import AuthLayout from "./layouts/AuthLayout.jsx";
+import Login from "./pages/auth/Login.jsx";
+import Register from "./pages/auth/Register.jsx";
+import VerifyOtp from "./pages/auth/VerifyOtp.jsx";
+import ForgotPassword from "./pages/auth/ForgotPassword.jsx";
+import ResetPassword from "./pages/auth/ResetPassword.jsx";
 
 const App = () => {
   return (
@@ -31,7 +37,13 @@ const App = () => {
         <Route path="/courses/:id" element={<CourseDetail />} />
       </Route>
       {/* Auth Route */}
-      <Route path="/auth" element={<Auth />} />
+      <Route path="/auth" element={<AuthLayout />}>
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="verify-otp" element={<VerifyOtp />} />
+        <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="reset-password" element={<ResetPassword />} />
+      </Route>
 
       {/* ── STUDENT ROUTES ── */}
       <Route
