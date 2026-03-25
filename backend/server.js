@@ -12,7 +12,6 @@ import userRouter from "./routes/userRoutes.js";
 const app = express();
 connectDB();
 
-// ✅ CORS — Sabse Pehle
 const corsOptions = {
   origin: process.env.FRONTEND_URL,
   credentials: true,
@@ -20,8 +19,8 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization", "Cookie"],
 };
 
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
-
 app.use(express.json());
 app.use(cookieParser());
 
