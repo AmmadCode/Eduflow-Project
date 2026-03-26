@@ -236,14 +236,14 @@ const Navbar = () => {
           ) : (
             <>
               <Link
-                to="/auth"
+                to="/auth/login"
                 onClick={() => setMenuOpen(false)}
                 className="btn-outline text-sm text-center py-3"
               >
                 Login
               </Link>
               <Link
-                to="/auth"
+                to="/auth/register"
                 onClick={() => setMenuOpen(false)}
                 className="btn-emerald text-sm text-center py-3"
               >
