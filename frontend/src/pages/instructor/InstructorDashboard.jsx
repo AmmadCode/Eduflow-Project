@@ -21,7 +21,6 @@ const InstructorDashboard = () => {
       try {
         const data = await getInstructorCourses();
         setCourses(data.courses);
-        console.log(data);
       } catch (error) {
         console.error(error.message);
       } finally {
