@@ -16,7 +16,6 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Email ForgotPassword se aayi
   const email = location.state?.email;
 
   useEffect(() => {

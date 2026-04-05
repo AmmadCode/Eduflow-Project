@@ -13,7 +13,6 @@ const AdminDashboard = () => {
       try {
         const data = await gatAnalytics();
         setAnalytics(data.analytics);
-        console.log(data);
       } catch (error) {
         console.log(error);
       } finally {
